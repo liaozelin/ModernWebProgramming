@@ -34,6 +34,9 @@ body {
 	background-color: #777777; /*the gray color*/
 	border-radius: 50%;
 	transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
 }
 #button:hover .info {
 	height: 150px;
@@ -46,6 +49,9 @@ body {
 	/*height: 150px;*/
 	/*width: 150px;*/
 	transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
 }
 #button:hover .info ul {
 	transform: translate(70px, 0px);
@@ -126,10 +132,16 @@ img {
 	background-position: center;
 	opacity: 0;
     transition: all 1s;
+    -moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
 }
 #button:hover .button {
 	opacity: 1;
 	transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
 }
 .mask {
 	background-image: url(assets/images/nomask.png);
@@ -205,14 +217,19 @@ img {
 	background-position: center;
 	background-size: 80%;
 	border-radius: 50%;
-	transition: all 1s;
-	transition-delay: 0.7s;
+	transition: all 1s 0.7s;
+	-moz-transition: all 1s 0.7s;
+	-webkit-transition: all 1s 0.7s;
+	-o-transition: all 1s 0.7s;
 }
 #button:hover .icon {
 	background-color: rgba(48, 63, 159, 1); /*the blue color*/
 	background-image: url(assets/images/atplus_green.png);
 	transform: scale(1.5, 1.5);
 	transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
 }
 
 /*set the basic style of ul*/
