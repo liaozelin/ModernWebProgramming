@@ -1,0 +1,223 @@
+/*I write and test this style in chorme, please open it in chorme*/
+body {
+	font-family: Sans-serif;
+    font-weight: bold;
+}
+
+#bottom-positioner {
+	position: absolute;
+	height: 40px;
+	width: 40px;
+	left: 50%;
+	bottom: 12%;
+}
+
+#button {
+	/*position: relative;*/
+}
+
+/*-------------part1--------------*/
+/*the information bar in the top*/
+#info-bar {
+	position: absolute;
+	height: 40px;
+	width: 40px;
+}
+/* the box of images and numbers */
+.info {
+	position: relative;
+	height: 10px;
+	width: 10px;
+	bottom: -35%;
+	left: 40%;
+	overflow: hidden;
+	background-color: #777777; /*the gray color*/
+	border-radius: 50%;
+	transition: all 1s;
+}
+#button:hover .info {
+	height: 150px;
+	width: 150px;
+	transform: translate(-70px, -182px);
+}
+/* the whole unorder list */
+.info ul {
+	position: relative;
+	/*height: 150px;*/
+	/*width: 150px;*/
+	transition: all 1s;
+}
+#button:hover .info ul {
+	transform: translate(70px, 0px);
+}
+/* the single list item */
+.info li {
+	position: relative;
+}
+.user {
+	left: -20px; top: 15px;
+}
+.comment {
+	left: -30px; top: 25px;
+}
+.posted {
+	left: -45px; top: 30px;
+}
+.like {
+	left: 10px; top: -2px;
+}
+/*the numbers*/
+.info li span {
+	position: absolute;
+}
+.user span {
+	left: 38px;
+	top: 0px;
+	font-size: large;
+}
+.comment span {
+	left: 50px;
+	top: -5px;
+	font-size: xx-large;
+}
+.posted span, .like span {
+	left: 35px;
+	top: 0px;
+	font-size: x-large;
+}
+.page span {
+	color: white;
+}
+.mine span {
+	color: #079E6E; /*the green color*/
+}
+.mine {
+	float: left;
+	width: 100%;
+}
+/* set the size of images in part1 */
+img {
+	height: 28px;
+	width: 28px;
+}
+.comment img {
+	height: 35px;
+	width: 35px;
+}
+
+/*-------------part2--------------*/
+/*the control options in the left*/
+#control-ring-container {
+	position: absolute;
+}
+#control-ring {
+	position: relative;
+	height: 40px;
+	width: 40px;
+}
+/* single list item */
+.button {
+	position: relative;
+	height: 40px;
+	/* width: 40px; */
+	border-radius: 50%;
+	background-color: #777777; /*the gray color*/
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0;
+    transition: all 1s;
+}
+#button:hover .button {
+	opacity: 1;
+	transition: all 1s;
+}
+.mask {
+	background-image: url(assets/images/nomask.png);
+	/* left: 0px; */
+	bottom: 0px;
+}
+.history {
+	background-image: url(assets/images/history.png);
+	/* left: 0px; */
+	bottom: 40px;
+}
+.message {
+	background-image: url(assets/images/message.png);
+	/* left: 0px; */
+	bottom: 80px;
+}
+.setting {
+	background-image: url(assets/images/setting.png);
+	/* left: 0px; */
+	bottom: 120px;
+}
+.sign {
+	background-image: url(assets/images/signin.png);
+	/* left: 0px; */
+	bottom: 160px;
+}
+#button:hover .mask {
+	transform: translate(-75px, -45px);
+}
+#button:hover .history {
+	transform: translate(-90px, 0px);
+}
+#button:hover .message {
+	transform: translate(-70px, 45px);
+}
+#button:hover .setting {
+	transform: translate(-25px, 75px);
+}
+#button:hover .sign {
+	transform: translate(25px, 65px);
+}
+.unread { /*set style of the unread icon*/
+	position: absolute;
+	height: 16px;
+	width: 22px;
+	left: 25px;
+	top: -5px;
+	padding: 3px 0px;
+	text-align: center;
+	color: white;
+	background-color: red;
+	border-radius: 50%;
+    display: none;
+}
+#button:hover .unread {
+    display: block;
+}
+
+/*--------------part3---------------*/
+/*the atplus icon in the center*/
+.apb {
+	position: absolute;
+	height: 40px;
+	width: 40px;
+}
+.icon {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: #777777; /*the gray color*/
+	background-image: url(assets/images/atplus_white.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 80%;
+	border-radius: 50%;
+	transition: all 1s;
+	transition-delay: 0.7s;
+}
+#button:hover .icon {
+	background-color: rgba(48, 63, 159, 1); /*the blue color*/
+	background-image: url(assets/images/atplus_green.png);
+	transform: scale(1.5, 1.5);
+	transition: all 1s;
+}
+
+/*set the basic style of ul*/
+ul {
+	list-style-type: none;
+	padding-left: 0px;
+	margin: 0px;
+}

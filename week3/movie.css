@@ -1,0 +1,128 @@
+body {
+	font-family: Verdana, Tahoma, sans-serif;
+	font-size: 8pt;
+	background-image: url(images/background.png);
+	padding: 0;
+	margin: 0;
+}
+
+#banner {
+	text-align: center;
+	background-image: url(images/bannerbackground.png);
+	background-repeat: repeat-x;
+	background-size: auto 50px;
+}
+
+#title {
+	font-family: Tahoma, Verdana, sans-serif;
+	font-size: 24pt;
+	font-weight: bold;
+	text-align: center;
+}
+
+#major-page {  /*central part of the whole page*/
+	border: solid 4px gray;
+	width: 800px;
+	margin: auto;
+}
+
+#views {  /*major part, in the left of overview*/
+	position: relative;
+	width: 550px;
+}
+
+#rottenbig {
+	background-image: url(images/rottenbackground.png);
+	background-repeat: repeat-x;
+	background-size: auto 83px;
+}
+span.info {
+	font-size: 48pt;
+	font-weight: bold;
+	color: red;
+	vertical-align: text-bottom;
+}
+span.normal-font {
+	font-size: 8pt;
+	color: white;
+}
+
+/*two columns in the left-center page*/
+/*#content {
+	float: left;
+	width: 100%;
+}*/
+#left-content, #right-content {
+	/*position: relative;*/
+	float: left;
+	width: 47%;
+}
+#left-content {
+	margin: 2% 1% 2% 2%;
+}
+#right-content {
+	margin: 2% 2% 2% 1%;
+}
+
+/*a comment consist of author is an unit*/
+.view-unit {
+	margin-bottom: 3em;
+}
+.comment {
+	border: solid 2px gray;
+	padding: 8px;
+	margin: auto;
+	font-size: 8pt;
+	font-weight: bold;
+	background-color: #E1D697;
+}
+.comment img, .author img {
+	float: left;
+	padding-right: 5px;
+}
+.publication {
+	font-style: italic;
+}
+
+/*the overview floating in the right*/
+#overview {
+	float: right;
+	width: 250px;
+	font-family: Arial, sans-serif;
+	/*font-size: 8pt;*/
+	background-color: #A2B964;
+}
+
+dl {
+	padding: 10px;
+	margin: 0;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-bottom: 1em;
+}
+
+/*the page fooetr in bottom, show which page it is*/
+#pages {
+	padding: 5px;
+	margin: 0;
+	text-align: center;
+	background-color: #A2B964;
+	clear: both;
+}
+
+/*let two icons locate in the bottom-right of the whole window*/
+#container {
+	min-height: 100%;
+	height: auto;
+	height: 100%;
+	position: relative;
+}
+#footer-icons {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	clear: both;
+}
