@@ -53,7 +53,7 @@ body {
 	-webkit-transition: all 1s;
 	-o-transition: all 1s;
 }
-#button:hover .info ul {
+#button:hover .info > ul {
 	transform: translate(70px, 0px);
 }
 /* the single list item */
@@ -106,7 +106,7 @@ img {
 	height: 28px;
 	width: 28px;
 }
-.comment img {
+.comment > img {
 	height: 35px;
 	width: 35px;
 }
