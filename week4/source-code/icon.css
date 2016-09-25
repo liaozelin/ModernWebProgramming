@@ -33,28 +33,36 @@ body {
 	overflow: hidden;
 	background-color: #777777; /*the gray color*/
 	border-radius: 50%;
-	transition: all 1s;
-	-moz-transition: all 1s;
-	-webkit-transition: all 1s;
-	-o-transition: all 1s;
+	transition: all 1s 0.3s;
+	-moz-transition: all 1s 0.3s;
+	-webkit-transition: all 1s 0.3s;
+	-o-transition: all 1s 0.3s;
 }
 #button:hover .info {
 	height: 150px;
 	width: 150px;
 	transform: translate(-70px, -182px);
+	transition-delay: 0s;
+	-moz-transition-delay: 0s;
+	-webkit-transition-delay: 0s;
+	-o-transition-delay: 0s;
 }
 /* the whole unorder list */
 .info ul {
 	position: relative;
 	/*height: 150px;*/
 	/*width: 150px;*/
-	transition: all 1s;
-	-moz-transition: all 1s;
-	-webkit-transition: all 1s;
-	-o-transition: all 1s;
+	transition: all 1s 0.3s;
+	-moz-transition: all 1s 0.3s;
+	-webkit-transition: all 1s 0.3s;
+	-o-transition: all 1s 0.3s;
 }
 #button:hover .info > ul {
 	transform: translate(70px, 0px);
+	transition-delay: 0s;
+	-moz-transition-delay: 0s;
+	-webkit-transition-delay: 0s;
+	-o-transition-delay: 0s;
 }
 /* the single list item */
 .info li {
@@ -131,10 +139,10 @@ img {
 	background-repeat: no-repeat;
 	background-position: center;
 	opacity: 0;
-    transition: all 1s;
-    -moz-transition: all 1s;
-	-webkit-transition: all 1s;
-	-o-transition: all 1s;
+    transition: all 1s 0.3s;
+    -moz-transition: all 1s 0.3s;
+	-webkit-transition: all 1s 0.3s;
+	-o-transition: all 1s 0.3s;
 }
 #button:hover .button {
 	opacity: 1;
@@ -194,10 +202,14 @@ img {
 	color: white;
 	background-color: red;
 	border-radius: 50%;
-    display: none;
+	opacity: 0;
+    transition-delay: 0.3s;
+    -moz-transition-delay: 0.3s;
+	-webkit-transition-delay: 0.3s;
+	-o-transition-delay: 0.3s;
 }
 #button:hover .unread {
-    display: block;
+	opacity: 1;
 }
 
 /*--------------part3---------------*/
@@ -217,10 +229,10 @@ img {
 	background-position: center;
 	background-size: 80%;
 	border-radius: 50%;
-	transition: all 1s 0.7s;
-	-moz-transition: all 1s 0.7s;
-	-webkit-transition: all 1s 0.7s;
-	-o-transition: all 1s 0.7s;
+	transition: all 1s 1s;
+	-moz-transition: all 1s 1s;
+	-webkit-transition: all 1s 1s;
+	-o-transition: all 1s 1s;
 }
 #button:hover .icon {
 	background-color: rgba(48, 63, 159, 1); /*the blue color*/
