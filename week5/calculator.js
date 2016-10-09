@@ -1,7 +1,8 @@
 'use strict';
+
 // recode if the function equal() had been done, if so,
 // only divide, multiple, add, substract four function can
-// be executed based on the result,
+// be executed based on the result;
 // do other operation will clear the old result.
 var if_done_equal = false;
 
@@ -52,6 +53,7 @@ var bracket = function(flag) {
     if (flag) document.getElementById('input').innerHTML += "(";
     else document.getElementById('input').innerHTML += ")";
 };
+// clear the screen
 var init = function() {
     if_done_equal = false;
     document.getElementById('old').innerHTML = "";
@@ -74,7 +76,7 @@ var equal = function() {
         }
     } catch (err) {
         window.alert("Error occured! Invalid operation!");
-        document.getElementById('input').innerHTML = "";
+        init();
     }
 };
 

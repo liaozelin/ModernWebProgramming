@@ -58,6 +58,10 @@ button {
     background-color: #f7f7f7;
     border-radius: 20%;
 }
+
+button:hover {
+    background-color: #ededed;
+}
 /*special buttons*/
 .operator {
     color: #FF7F50;
@@ -65,4 +69,8 @@ button {
 
 #equal {
     background-color: #eae3e3;
+}
+
+#equal:hover {
+    background-color: #fc5555;
 }
