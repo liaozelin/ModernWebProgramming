@@ -5,30 +5,45 @@
 // be executed based on the result;
 // do other operation will clear the old result.
 var if_done_equal = false;
+// if an operator is inputed, then the next can't be operator
+var operators_allow = true;
 
 var num = function(number) {
     if (if_done_equal) {
         document.getElementById('input').innerHTML = String(number);
         if_done_equal = false;
     } else {
+        operators_allow = true;
         document.getElementById('input').innerHTML += String(number);
     }
 };
 var divide = function() {
     if_done_equal = false;
-    document.getElementById('input').innerHTML += "/";
+    if (operators_allow) {
+        operators_allow = false;
+        document.getElementById('input').innerHTML += "/";
+    }
 };
 var multiple = function() {
     if_done_equal = false;
-    document.getElementById('input').innerHTML += "*";
+    if (operators_allow) {
+        operators_allow = false;
+        document.getElementById('input').innerHTML += "*";
+    }
 };
 var substract = function() {
     if_done_equal = false;
-    document.getElementById('input').innerHTML += "-";
+    if (operators_allow) {
+        operators_allow = false;
+        document.getElementById('input').innerHTML += "-";
+    }
 };
 var add = function() {
     if_done_equal = false;
-    document.getElementById('input').innerHTML += "+";
+    if (operators_allow) {
+        operators_allow = false;
+        document.getElementById('input').innerHTML += "+";
+    }
 };
 var point = function() {
     if (if_done_equal) {
@@ -56,6 +71,7 @@ var bracket = function(flag) {
 // clear the screen
 var init = function() {
     if_done_equal = false;
+    operators_allow = true;
     document.getElementById('old').innerHTML = "";
     document.getElementById('input').innerHTML = "";
 };
@@ -63,7 +79,7 @@ var equal = function() {
     try {
         if (document.getElementById('input').innerHTML === "") return;
 
-        var res = parseFloat(eval(document.getElementById('input').innerHTML));
+        var res = eval(document.getElementById('input').innerHTML);
         if (isNaN(res) || res === Infinity || res === -Infinity) {
             window.alert("Error occured! Invalid operation!");
             init();
