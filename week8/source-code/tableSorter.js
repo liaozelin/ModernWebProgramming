@@ -1,4 +1,3 @@
-//http://www.cplusplus.com/reference/string/string/?kw=string
 (function() {
     // add script
     var head = document.getElementsByTagName('head')[0];
