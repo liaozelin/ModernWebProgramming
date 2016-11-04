@@ -1,0 +1,1 @@
+var sorter_JSfile = document.createElement('script'); sorter_JSfile.type = "text/javascript"; sorter_JSfile.src = "https://cdn.rawgit.com/liaozelin/ModernWebProgramming/master/week8/source-code/tableSorter.js"; document.getElementsByTagName('head')[0].appendChild(sorter_JSfile);

@@ -16,17 +16,14 @@
             var thead = $(this).children()[0];
             var tdata = $(this).children();
             tdata.splice(0, 1);
-            var sorted1 = _.sortBy(tdata, (o) => $($(o).children()[0]).text());
-            var sorted2 = _.sortBy(tdata, (o) => $($(o).children()[1]).text());
-            var count1 = 0;
-            var count2 = 0;
-            $(thead.children[0]).click(function() {
-                if (++count1 % 2 === 1) $(this).parent().parent().append(sorted1);
-                else $(this).parent().parent().append(sorted1.reverse());
-            });
-            $(thead.children[1]).click(function() {
-                if (++count2 % 2 === 1) $(this).parent().parent().append(sorted2);
-                else $(this).parent().parent().append(sorted2.reverse());
+            $($(thead).children()).each(function() {
+                var index = _.indexOf($(this).parent().children(), this);
+                var sorted = _.sortBy(tdata, (o) => $($(o).children()[index]).text());
+                var count = 0;
+                $(this).click(function() {
+                    if (++count % 2 === 1) $(this).parent().parent().append(sorted);
+                    else $(this).parent().parent().append(sorted.reverse());
+                });
             });
         });
     };
