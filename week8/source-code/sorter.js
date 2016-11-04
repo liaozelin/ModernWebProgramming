@@ -1,6 +1,7 @@
 //http://www.cplusplus.com/reference/string/string/?kw=string
 (function() {
     // add script
+    var hh = document.createElement('script');
     var jq = document.createElement('script');
     jq.type = "text/javascript";
     jq.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js";
