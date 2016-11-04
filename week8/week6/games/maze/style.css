@@ -1,0 +1,151 @@
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: sans-serif;
+    /*-webkit-text-size-adjust:none;*/
+}
+
+p {
+    text-align: center;
+    font-size: 28px;
+}
+
+#title {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/*-------------------result area-------------------*/
+#result {
+    height: 35px;
+}
+
+#result p {
+    position: relative;
+}
+
+.not-visual {
+    opacity: 0;
+    transition: all 0.5s;
+}
+/*for js to show the result*/
+.visual {
+    opacity: 1;
+    transition: all 0.5s;
+}
+/*adjust position*/
+#win {
+    top: -20px;
+}
+
+#lose {
+    top: -80px;
+}
+
+#cheat {
+    top: -140px;
+}
+
+/*-------------------maze area-------------------*/
+#maze {
+    height: 450px;
+    width: 700px;
+    margin: auto;
+}
+
+.cursor-change {
+    cursor: pointer;
+}
+
+#maze div {
+    position: relative;
+}
+
+.unable {
+    background-color: #e2e2e2;
+}
+/*for js to show the behavior of losing the game*/
+.unable-touched {
+    background-color: red;
+    position: relative;
+}
+/*adjust the size and the position of element in the maze*/
+#top, #bottom {
+    height: 20%;
+    border: 1px solid black;
+}
+
+#bottom {
+    bottom: -271px;
+}
+
+#left, #right {
+    height: 48%;
+    width: 30%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#left {
+    top: -93px;
+}
+
+#right {
+    top: -310px;
+    left: 488px;
+}
+
+#middle {
+    height: 48%;
+    width: 22%;
+    top: -471px;
+    left: 271px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#start, #end {
+    height: 50px;
+    width: 50px;
+    font-size: 40px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#start {
+    background-color: #2bfc14;
+    top: -525px;
+}
+
+#end {
+    background-color: #6b66f4;
+    top: -577px;
+    left: 648px;
+}
+
+#test-unit {
+    height: 54px;
+    width: 10px;
+    top: -842px;
+    left: 345px;
+}
+/*-------------------explain area-------------------*/
+#explain2 {
+    width: 800px;
+    margin: auto;
+}
+
+#explain2 p {
+    text-align: left;
+}
+
+#explain2 div {
+    height: 30px;
+    width: 100px;
+    margin: auto;
+    background-color: #bababa;
+    border: 1px solid black;
+}

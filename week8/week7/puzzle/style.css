@@ -1,0 +1,129 @@
+body {
+    font-family: sans-serif;
+}
+
+#game {
+    height: 605px;
+    width: 400px;
+    margin: auto;
+    border: 1px solid #b7b7b7;
+    box-shadow: 10px 10px 10px #b7b7b7;
+}
+
+#title {
+    text-align: center;
+}
+
+#timer {
+    width: 210px;
+    height: 20px;
+    margin: auto;
+}
+
+#content {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#main-body {
+    position: relative;
+
+    width: 360px;
+    height: 360px;
+    margin: auto;
+}
+
+.box {
+    position: absolute;
+
+    float: left;
+
+    width: 88px;
+    height: 88px;
+
+    border: 1px solid gray;
+    background-image: url(panda.jpg);
+}
+
+.box:hover {
+    transform: scale(1.05, 1.05);
+}
+
+#box-15 {
+    opacity: 0;
+}
+
+.box-bg-pos-0 { background-position: 0% 0%; }
+.box-bg-pos-1 { background-position: 33.5% 0%; }
+.box-bg-pos-2 { background-position: 66% 0%; }
+.box-bg-pos-3 { background-position: 100% 0%; }
+.box-bg-pos-4 { background-position: 0% 33.5%; }
+.box-bg-pos-5 { background-position: 33.5% 33.5%; }
+.box-bg-pos-6 { background-position: 66% 33.5%; }
+.box-bg-pos-7 { background-position: 100% 33.5%; }
+.box-bg-pos-8 { background-position: 0% 66%; }
+.box-bg-pos-9 { background-position: 33.5% 66%; }
+.box-bg-pos-10 { background-position: 66% 66%; }
+.box-bg-pos-11 { background-position: 100% 66%; }
+.box-bg-pos-12 { background-position: 0% 100%; }
+.box-bg-pos-13 { background-position: 33.5% 100%; }
+.box-bg-pos-14 { background-position: 66% 100%; }
+.box-bg-pos-15 { background-position: 100% 100%; }
+
+
+.col-0 { left: 0%; transition: all 0.5s; }
+.col-1 { left: 25%; transition: all 0.5s; }
+.col-2 { left: 50%; transition: all 0.5s; }
+.col-3 { left: 75%; transition: all 0.5s; }
+
+.row-0 { top: 0%; transition: all 0.5s; }
+.row-1 { top: 25%; transition: all 0.5s; }
+.row-2 { top: 50%; transition: all 0.5s; }
+.row-3 { top: 75%; transition: all 0.5s; }
+
+button, .buttons, #filechooser-span {
+    font-size: 20px;
+    float: left;
+    width: 140px;
+    height: 50px;
+    margin: 5px 30px 0px 30px;
+    /* margin-top: 5px; */
+    color: white;
+    background-color: #187ce0;
+    box-shadow: 2px 2px 4px #b7b7b7;
+}
+
+#filechooser {
+    opacity: 0;
+}
+
+#filechooser-span {
+    text-align: center;
+    vertical-align: text-bottom;
+    padding: auto;
+}
+
+#filechooser-text {
+    position: relative;
+    float: left;
+    top: 30%;
+    left: 11%;
+}
+
+button:hover, .buttons:hover, #filechooser-span:hover {
+    transform: scale(1.05, 1.05);
+}
+
+#picture {
+    width: 99px;
+    height: 99px;
+    float: right;
+    background-image: url(panda.jpg);
+    background-size: 100%;
+}
+
+.picture-hidden { opacity: 0; transition: all 0.5s; }
+.picture-show { opacity: 1; transition: all 0.5s; }
+
+

@@ -1,0 +1,24 @@
+thead th {
+    padding-right: 20px;
+    color: white;
+    background-color: #333399;
+}
+
+th, td {
+    border: 0.5px solid gray;
+}
+
+.sorted-ascend, .sorted-descend {
+    background-color: #99CCFF;
+    background-image: url(ascend.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.sorted-descend {
+    background-image: url(descend.png);
+}
+
+.alternate {
+    background-color: #c4c4c4;
+}
