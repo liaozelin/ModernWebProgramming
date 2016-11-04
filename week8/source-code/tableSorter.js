@@ -1,15 +1,15 @@
 //http://www.cplusplus.com/reference/string/string/?kw=string
 (function() {
     // add script
-    var hh = document.createElement('script');
+    var head = document.getElementsByTagName('head')[0];
     var jq = document.createElement('script');
     jq.type = "text/javascript";
     jq.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js";
     var lodash = document.createElement('script');
     lodash.type = "text/javascript";
     lodash.src = "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js";
-    $('head').append(jq);
-    $('head').append(lodash);
+    head.appendChild(jq);
+    head.appendChild(lodash);
     var run = function() {
         var content = $('table').children();
         $(content).each(function() {
