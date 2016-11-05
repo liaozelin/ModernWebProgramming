@@ -6,3 +6,8 @@ magic code:
 web:
     http://www.w3school.com.cn/html/html_tables.asp
     http://www.cplusplus.com/reference/string/string/?kw=string
+    http://www.runoob.com/bootstrap/bootstrap-tables.html
+    http://xianbai.me/learn-md/article/extension/table.html
+
+
+ps:the two js files realize the same function

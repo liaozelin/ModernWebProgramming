@@ -1,5 +1,9 @@
+body {
+    font-family: sans-serif;
+}
+
 #game {
-    height: 550px;
+    height: 605px;
     width: 400px;
     margin: auto;
     border: 1px solid #b7b7b7;
@@ -78,21 +82,36 @@
 .row-2 { top: 50%; transition: all 0.5s; }
 .row-3 { top: 75%; transition: all 0.5s; }
 
-button {
+button, .buttons, #filechooser-span {
     font-size: 20px;
     float: left;
-
     width: 140px;
     height: 50px;
-    margin: 30px;
-    margin-top: 5px;
-
+    margin: 5px 30px 0px 30px;
+    /* margin-top: 5px; */
     color: white;
     background-color: #187ce0;
     box-shadow: 2px 2px 4px #b7b7b7;
 }
 
-#start:hover {
+#filechooser {
+    opacity: 0;
+}
+
+#filechooser-span {
+    text-align: center;
+    vertical-align: text-bottom;
+    padding: auto;
+}
+
+#filechooser-text {
+    position: relative;
+    float: left;
+    top: 30%;
+    left: 11%;
+}
+
+button:hover, .buttons:hover, #filechooser-span:hover {
     transform: scale(1.05, 1.05);
 }
 
@@ -106,3 +125,5 @@ button {
 
 .picture-hidden { opacity: 0; transition: all 0.5s; }
 .picture-show { opacity: 1; transition: all 0.5s; }
+
+

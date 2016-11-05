@@ -8,7 +8,7 @@ $(function() {
 });
 
 function sort(that) {
-    setSortMode(that); // set sort mode and change the style of thead
+    setSortStyle(that); // set sort mode and change the style of thead
     var index = _.indexOf($(that).parent().children(), that); // sort the table by? get the col index
     var trs = $(that).parentsUntil('table').next().children(); // get real trs needed sorted
     var cache = clearAndGetSortedTextsCache(trs, index);
@@ -17,7 +17,7 @@ function sort(that) {
     });
 }
 
-function setSortMode(that) {
+function setSortStyle(that) {
     $(that).siblings().each(function() {
         removeClassOfSiblings(this);
     });
@@ -49,7 +49,7 @@ function clearAndGetSortedTextsCache(trs, index) {
 function clearTdTextAndFillCache(that, cache) {
     var tdText = $(that).html().match(/<td>(.*?)<\/td>/g);
     $(that).children().each(function() {
-        $(this).text("");  // delete old contents
+        $(this).text(""); // delete old contents
     });
     cache.push($(tdText).map(function() {
         return this.match(/<td>(.*?)<\/td>/)[1];
@@ -65,13 +65,8 @@ function setNewTdText(that, cache, sortMode) {
 }
 
 function getStrFromCache(cache, reverse) {
-    var t;
-    if (!reverse) {
-        t = cache[0];
-        cache.shift();
-    } else {
-        t = cache[cache.length - 1];
-        cache.pop();
-    }
-    return t;
+    if (!reverse)
+        return cache.shift();
+    else
+        return cache.pop();
 }

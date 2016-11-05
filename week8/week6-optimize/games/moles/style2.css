@@ -1,0 +1,89 @@
+body {
+    font-family: Consolas, monospace, Helvetica, Arial, sans-serif;
+}
+
+div > p {
+    text-align: center;
+    font-size: 22px;
+}
+
+#title {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#explain {
+    margin: 10px;
+}
+/*----------------menu area--------------------*/
+.button-display {
+    height: 30px;
+    width: 420px;
+    margin: auto;
+}
+
+.button {
+    background-color: white;
+    outline: none;
+}
+
+.button:active {
+    background-color: #4595e0;
+}
+
+input {
+    border: 1px solid #F0F0F0;
+}
+
+#status {
+    box-shadow: -2px 2px 2px #d6d6d6;
+}
+
+.info {
+    float: right;
+}
+
+.info input {
+    box-shadow: 2px 2px 2px #d6d6d6;
+}
+/*----------------moles area--------------------*/
+#moles {
+    height: 192px;
+    width: 320px;
+    margin: 40px auto;
+    border: 2px solid #a8a8a8;
+    border-left: none;
+    border-right: none;
+}
+
+button {
+    height: 20px;
+    width: 20px;
+    margin: 6px;
+    border: 1px solid #d6d6d6;
+    border-radius: 50%;
+    outline: none;
+    background-color: #fff;
+}
+
+button:active {
+    background-color: #d6d6d6;
+}
+/*for js to change the style of radiobox when be chosen*/
+.radio-input-chose {
+    display: inline-block;
+    border-radius: 50%;
+    background: url(./circle.png) no-repeat center;
+    background-size: 114%;
+}
+/*----------------instructions area--------------------*/
+#instructions {
+    width: 1050px;
+    margin: auto;
+    font-size: 20px;
+    text-align: left;
+}
+
+dt {
+    font-weight: bold;
+}

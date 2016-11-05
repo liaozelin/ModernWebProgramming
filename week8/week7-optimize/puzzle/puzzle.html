@@ -4,6 +4,8 @@
   <title>Puzzle</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="style.css"></link>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
   <script type="text/javascript" src="puzzle.js"></script>
 </head>
 <body>
@@ -23,10 +25,13 @@
       <button id="hint">Show/Hidden Picture</button>
     </div>
     <div>
-      <input type="file" name="filechooser" id="filechooser" />
+      <label for="filechooser">
+        <input type="file" name="filechooser" id="filechooser" />
+        <span id="filechooser-span"><span id="filechooser-text">Choose File</span></span>
+      </label>
     </div>
     <div>
-      <button id="init-image">Init Image</button>
+      <input type="button" class="buttons" name="init-image" id="init-image" value="Init Image" />
     </div>
   </div>
 
