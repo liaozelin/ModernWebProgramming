@@ -10,4 +10,4 @@ web:
     http://xianbai.me/learn-md/article/extension/table.html
 
 
-ps:the two js files realize the same function
+ps:the two js files in table-sorter realize the same function
