@@ -1,3 +1,8 @@
+table{
+    border-collapse: collapse;
+    text-align: left;
+}
+
 thead th {
     padding-right: 20px;
     color: white;
@@ -5,7 +10,7 @@ thead th {
 }
 
 th, td {
-    border: 0.5px solid gray;
+    border: 2px solid #dbdbdb;
 }
 
 .sorted-ascend, .sorted-descend {

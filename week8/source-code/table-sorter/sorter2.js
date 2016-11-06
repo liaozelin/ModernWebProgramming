@@ -26,7 +26,7 @@
         var index = _.indexOf($(ele).parent().children(), ele); // sort the table by? get the col index
         var trs = $(ele).parentsUntil('table').next().children(); // get real trs needed sorted
         this.clearAndGetSortedTextsCache(trs, index);
-        this.descend = ($(ele).hasClass('sorted-ascend') ? false : true);
+        this.descend = ($(ele).hasClass('sorted-ascend') ? true : false);
         var that = this;
         trs.each(function() {
             that.setNewTdText(this);

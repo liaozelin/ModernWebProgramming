@@ -15,9 +15,10 @@ body {
 }
 
 #timer {
-    width: 210px;
+    width: 220px;
     height: 20px;
     margin: auto;
+    margin-bottom: 30px;
 }
 
 #content {
