@@ -24,14 +24,16 @@
                     // var sorted = _.sortBy(tdata, (o) => $($(o).children()[index]).text());
                     // var sorted_reverse = _.cloneDeep(sorted);
                     // sorted_reverse.reverse();
-                    var count = 0;
-                    $(this).click(function() {
-                        // if (++count % 2 === 1) $(that.children[1]).append(sorted);
-                        // else $(that.children[1]).append(sorted_reverse);
-                        var index = _.indexOf($(this).parent().children(), this);
-                        var sorted = _.sortBy(tdata, (o) => $($(o).children()[index]).text());
-                        if (++count % 2 === 0) sorted.reverse();
-                        $(that.children[1]).append(sorted);
+                    $($(this).children()).each(function() {
+                        var count = 0;
+                        $(this).click(function() {
+                            // if (++count % 2 === 1) $(that.children[1]).append(sorted);
+                            // else $(that.children[1]).append(sorted_reverse);
+                            var index = _.indexOf($(this).parent().children(), this);
+                            var sorted = _.sortBy(tdata, (o) => $($(o).children()[index]).text());
+                            if (++count % 2 === 0) sorted.reverse();
+                            $(that.children[1]).append(sorted);
+                        });
                     });
                 });
             } else {
