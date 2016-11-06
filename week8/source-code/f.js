@@ -56,20 +56,24 @@
         function table_sorter() {
             this.start = function() {
                 $('table').each(function() {
-                    new table_worker(this);
+                    var g = new table_worker();
+                    g.addDatas(this);
+                    g.startWork();
                 });
             };
             this.start();
         }
 
-        function table_worker(element) {
-            this.addData(element);
-            this.start();
-        }
+        function table_worker() {}
 
         var tt = table_worker.prototype;
 
-        tt.addData = function(element) {
+        tt.element = undefined;
+        tt.hasThead = undefined;
+        tt.thead = undefined;
+        tt.tdata = undefined;
+
+        tt.addDatas = function(element) {
             this.element = element;
             this.hasThead = (this.element.children.length === 2);
             if (this.hasThead) {
@@ -78,17 +82,17 @@
             } else {
                 this.thead = this.children[0].children[0];
                 this.tdata = $(this.children[0]).children();
-                tdata.splice(0, 1);
+                this.tdata.splice(0, 1);
             }
-        }
+        };
 
-        tt.start = function() {
+        tt.startWork = function() {
             $($(this.thead).children()).each((function(element, hasThead) {
                 sortAndFill(element, hasThead);
-            })(this.element, this.hasThead));
-        }
+            })(this.element, this.hasThead, this.tdata));
+        };
 
-        function sortAndFill(element, hasThead) {
+        function sortAndFill(element, hasThead, tdata) {
             var count = 0;
             $(this).click(function() {
                 var index = _.indexOf($(this).parent().children(), this);
