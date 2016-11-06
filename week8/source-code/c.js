@@ -37,11 +37,20 @@
                     });
                 });
             } else {
-                var thead = this.children[0][0];
-                var tdata = this.children[0];
-                tdata.splice(0, 1);
+                var thead = this.children[0].children[0];
+                var tdata = $(this.children[0]).children();
+                tdata.splice(0, 1)
                 $($(thead).children()).each(function() {
-                    sortAndFill(tdata);
+                    // sortAndFill(tdata);
+                    var count = 0;
+                    $(this).click(function() {
+                        // if (++count % 2 === 1) $(that.children[1]).append(sorted);
+                        // else $(that.children[1]).append(sorted_reverse);
+                        var index = _.indexOf($(this).parent().children(), this);
+                        var sorted = _.sortBy(tdata, (o) => $($(o).children()[index]).text());
+                        if (++count % 2 === 0) sorted.reverse();
+                        $(that.children[1]).append(sorted);
+                    });
                 });
             }
         });
