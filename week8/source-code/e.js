@@ -45,17 +45,23 @@
     // };
     // setTimeout(run, 300);
 
-    var table_sorter = function() {
+    $(function() {
+        new table_sorter();
+    });
+
+    // var tp = table_sorter.prototype;
+
+
+    function table_sorter() {
+        this.start = function() {
+            $('table').each(function() {
+                new table_worker(this);
+            });
+        };
         this.start();
     }
 
-    table_sorter.prototypestart = function() {
-        $('table').each(function() {
-            new table_worker(this);
-        });
-    }
-
-    var table_worker = function(element) {
+    function table_worker(element) {
         this.addData(element);
         this.start();
     }
