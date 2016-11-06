@@ -45,56 +45,59 @@
     // };
     // setTimeout(run, 300);
 
-    $(function() {
-        new table_sorter();
-    });
+    function run() {
+        $(function() {
+            new table_sorter();
+        });
 
-    // var tp = table_sorter.prototype;
+        // var tp = table_sorter.prototype;
 
 
-    function table_sorter() {
-        this.start = function() {
-            $('table').each(function() {
-                new table_worker(this);
+        function table_sorter() {
+            this.start = function() {
+                $('table').each(function() {
+                    new table_worker(this);
+                });
+            };
+            this.start();
+        }
+
+        function table_worker(element) {
+            this.addData(element);
+            this.start();
+        }
+
+        var tt = table_worker.prototype;
+
+        tt.addData = function(element) {
+            this.element = element;
+            this.hasThead = (this.element.children.length === 2);
+            if (this.hasThead) {
+                this.thead = this.children[0].children;
+                this.tdata = this.children[1].children;
+            } else {
+                this.thead = this.children[0].children[0];
+                this.tdata = $(this.children[0]).children();
+                tdata.splice(0, 1);
+            }
+        }
+
+        tt.start = function() {
+            $($(this.thead).children()).each((function(element, hasThead) {
+                sortAndFill(element, hasThead);
+            })(this.element, this.hasThead));
+        }
+
+        function sortAndFill(element, hasThead) {
+            var count = 0;
+            $(this).click(function() {
+                var index = _.indexOf($(this).parent().children(), this);
+                var sorted = _.sortBy(tdata, (o) => $($(o).children()[index]).text());
+                if (++count % 2 === 0) sorted.reverse();
+                $(element.children[hasThead]).append(sorted);
             });
-        };
-        this.start();
-    }
-
-    function table_worker(element) {
-        this.addData(element);
-        this.start();
-    }
-
-    var tt = table_worker.prototype;
-
-    tt.addData = function(element) {
-        this.element = element;
-        this.hasThead = (this.element.children.length === 2);
-        if (this.hasThead) {
-            this.thead = this.children[0].children;
-            this.tdata = this.children[1].children;
-        } else {
-            this.thead = this.children[0].children[0];
-            this.tdata = $(this.children[0]).children();
-            tdata.splice(0, 1);
         }
     }
 
-    tt.start = function() {
-        $($(this.thead).children()).each((function(element, hasThead) {
-            sortAndFill(element, hasThead);
-        })(this.element, this.hasThead));
-    }
-
-    function sortAndFill(element, hasThead) {
-        var count = 0;
-        $(this).click(function() {
-            var index = _.indexOf($(this).parent().children(), this);
-            var sorted = _.sortBy(tdata, (o) => $($(o).children()[index]).text());
-            if (++count % 2 === 0) sorted.reverse();
-            $(element.children[hasThead]).append(sorted);
-        });
-    }
-
+    setTimeout(run, 300);
 }.call(this));
