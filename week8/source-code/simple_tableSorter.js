@@ -11,7 +11,7 @@
     var head = document.getElementsByTagName('head')[0];
     head.appendChild(jq);
     head.appendChild(lodash);
-    start working
+    // start working
     var run = function() {
         $('table').each(function() {
             var that = this;
