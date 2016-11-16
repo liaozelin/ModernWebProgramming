@@ -8,6 +8,7 @@ web:
     http://www.cplusplus.com/reference/string/string/?kw=string
     http://www.runoob.com/bootstrap/bootstrap-tables.html
     http://xianbai.me/learn-md/article/extension/table.html
+    http://soj.sysu.edu.cn/ranklist.php
 
 
 ps:the two js files in table-sorter realize the same function

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>sign</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="http://www.msqq.com/d/file/icon/2014-04-01/172eed482fb88fcbb9918ad438f023de.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/signin.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+    <script type="text/javascript" src="/static/js/signinpage.js"></script>
+</head>
+<body youdao="bind" cz-shortcut-listen="true">
+  <div class="container">
+    <form class="form-signin" role="form" action="/signin" method="post">
+      <h2 class="form-signin-heading">register</h2>
+      <div>
+        username:<input type="username" class="form-control username" placeholder="username" required="" autofocus="" name="username">
+        <span class="alert alert-danger hidden username" role="alert">
+          <strong>用户名6~18位英文字母、数字或下划线，必须以英文字母开头</strong>
+        </span>
+        <span class="alert alert-danger hidden usernameE" role="alert">
+          <strong>用户名已存在</strong>
+        </span>
+      </div>
+      <div>
+        studentID:<input type="studentID" class="form-control studentID" placeholder="studentID" required="" name="studentID">
+        <span class="alert alert-danger hidden studentID" role="alert">
+          <strong>学号8位数字，不能以0开头</strong>
+        </span>
+        <span class="alert alert-danger hidden studentIDE" role="alert">
+          <strong>学号已存在</strong>
+        </span>
+      </div>
+      <div>
+        phone:<input type="phone" class="form-control phone" placeholder="phone" required="" name="phone">
+        <span class="alert alert-danger hidden phone" role="alert">
+          <strong>电话11位数字，不能以0开头</strong>
+        </span>
+        <span class="alert alert-danger hidden phoneE" role="alert">
+          <strong>电话号码已存在</strong>
+        </span>
+      </div>
+      <div>
+        email:<input type="email" class="form-control email" placeholder="email" required="" autofocus="" name="email">
+        <span class="alert alert-danger hidden email" role="alert">
+          <strong>格式错误</strong>
+        </span>
+        <span class="alert alert-danger hidden emailE" role="alert">
+          <strong>邮箱已存在</strong>
+        </span>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block submit" type="submit">submit</button>
+      <button class="btn btn-lg btn-primary btn-block reset" type="reset">reset</button>
+    </form>
+  </div> <!-- /container -->
+  <!-- {% if valid %}
+  if (!message.valid && message.message !== '') {
+    <div class="alert alert-danger" role="alert">
+      <strong>submit failed: </strong>{{message}}
+    </div>
+  }
+  {% endif %} -->
+</body>
+</html>
