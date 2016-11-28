@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>signin-ok</title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="http://www.msqq.com/d/file/icon/2014-04-01/172eed482fb88fcbb9918ad438f023de.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/signin.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+  <script type="text/javascript" src="/js/detail.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="form-signin" role="form" action="" method="post">
+      <h2 class="form-signin-heading">详情</h2>
+      用户名:<input type="text" class="form-control username" placeholder="username" required="" autofocus="" name="username" readonly="readonly" value="{{user.username}}">
+      学号:<input type="text" class="form-control studentID" placeholder="studentID" name="studentID" readonly="readonly" value="{{user.studentID}}">
+      电话:<input type="text" class="form-control phone" placeholder="phone" name="phone" readonly="readonly" value="{{user.phone}}" + {{phone}}>
+      邮箱:<input type="text" class="form-control email" placeholder="email" name="email" readonly="readonly" value="{{user.email}}">
+      {% if failed %}
+      <div class="alert alert-danger" role="alert">
+        <strong>只能够访问自己的数据</strong>
+      </div>
+      {% endif %}
+      <button class="btn btn-lg btn-primary btn-block quit" type="">退出</button>
+    </div>
+  </div>
+</body>
+</html>
