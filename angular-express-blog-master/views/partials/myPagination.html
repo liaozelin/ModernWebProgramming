@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-8" ng-show="conf.totalItems > 0">
+    <span class="row-selector form-inline col-sm-3 my-pagination-part-two">
+      每页<select class="form-control" ng-model="conf.sizeOfEachPage" ng-options="option for option in sizeOfEachPageOptions " ng-change="changeSizeOfEachPage()"></select>条/共{{conf.totalItems}}条
+    </span>
+    <!-- <div class="form-inline col-sm-3 my-pagination-part-two">
+      <span class="col-sm-1">跳至</span>
+      <div>
+        <div class="input-group my-fix-input-group">
+          <input type="text" name="" class="form-control">
+          <span class="input-group-btn">
+            <a href="#" class="btn btn-default" ng-click="">Go!</a>
+          </span>
+        </div>
+      </div>
+    </div> -->
+    <ul class="pagination pull-right">
+      <li ng-show="conf.curPageIndex != 1"><a href="" ng-click="setPage(1)">&laquo;</a></li>
+      <li ng-show="conf.curPageIndex > 1"><a href="" ng-click="previousPage()">prev</a></li>
+      <li ng-repeat="index in pagesList track by $index" ng-class="{'active': index === conf.curPageIndex}">
+        <a href="" ng-click="setPage(index)">{{index}}</a>
+      </li>
+      <li ng-show="conf.curPageIndex < pagesSize"><a href="" ng-click="nextPage()">next</a></li>
+      <li ng-show="conf.curPageIndex != pagesSize"><a href=""  ng-click="setPage(pagesSize)">&raquo;</a></li>
+    </ul>
+  </div>
+</div>
