@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>sign</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="http://www.msqq.com/d/file/icon/2014-04-01/172eed482fb88fcbb9918ad438f023de.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/signin.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+    <script type="text/javascript" src="/js/signin.js"></script>
+</head>
+<body youdao="bind" cz-shortcut-listen="true">
+  <div class="container">
+    <form class="form-signin" role="form" action="/signin" method="post">
+      <h2 class="form-signin-heading">登录</h2>
+      <div>
+        用户名:<input type="username" class="form-control username" placeholder="username" required="" autofocus="" name="username">
+      </div>
+      <div>
+        密码:<input type="password" class="form-control password" placeholder="password" required="" autofocus="" name="password">
+      </div>
+      {% if failed %}
+      <div class="alert alert-danger" role="alert">
+        <strong>登录失败: </strong>出错的用户名或者密码
+      </div>
+      {% endif %}
+      <div class="pull-right">
+        <button class="btn btn-lg btn-default submit" type="submit">登录</button>
+        <button class="btn btn-lg btn-primary regist" type="">注册</button>
+      </div>
+    </form>
+  </div> <!-- /container -->
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>sign</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="http://www.msqq.com/d/file/icon/2014-04-01/172eed482fb88fcbb9918ad438f023de.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/signin.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+    <script type="text/javascript" src="/js/regist.js"></script>
+    <script type="text/javascript" src="/js/validator.js"></script>
+</head>
+<body youdao="bind" cz-shortcut-listen="true">
+  <div class="container">
+    <form class="form-signin" role="form" action="/regist" method="post">
+      <h2 class="form-signin-heading">注册</h2>
+      {% if failed %}
+      <div class="alert alert-danger" role="alert">
+        <strong>注册用户时发生错误: 您的信息可能重复</strong>
+      </div>
+      {% endif %}
+      <div class="form-group">
+        <label class="control-label sr-only username" for="username">用户名:</label>
+        <input type="username" class="form-control input-sm" id="username" placeholder="username" required="" autofocus="" name="username">
+        <span class="glyphicon glyphicon-ok form-control-feedback hidden username"></span>
+        <span class="glyphicon glyphicon-remove form-control-feedback hidden username"></span>
+        <span class="help-block hidden username">格式错误: 用户名6~18位英文字母、数字或下划线，必须以英文字母开头</span>
+        <span class="help-block hidden usernameE">用户名已存在</span>
+      </div>
+      <div class="form-group">
+        <label class="control-label sr-only studentID" for="studentID">学号:</label>
+        <input type="studentID" class="form-control input-sm" id="studentID" placeholder="studentID" required="" autofocus="" name="studentID">
+        <span class="glyphicon glyphicon-ok form-control-feedback hidden studentID"></span>
+        <span class="glyphicon glyphicon-remove form-control-feedback hidden studentID"></span>
+        <span class="help-block hidden studentID">格式错误: 学号8位数字，不能以0开头</span>
+        <span class="help-block hidden studentIDE">学号已存在</span>
+      </div>
+      <div class="form-group">
+        <label class="control-label sr-only phone" for="phone">电话号码:</label>
+        <input type="phone" class="form-control input-sm" id="phone" placeholder="phone" required="" autofocus="" name="phone">
+        <span class="glyphicon glyphicon-ok form-control-feedback hidden phone"></span>
+        <span class="glyphicon glyphicon-remove form-control-feedback hidden phone"></span>
+        <span class="help-block hidden phone">格式错误: 电话11位数字，不能以0开头</span>
+        <span class="help-block hidden phoneE">电话号码已存在</span>
+      </div>
+      <div class="form-group">
+        <label class="control-label sr-only email" for="email">邮箱:</label>
+        <input type="email" class="form-control input-sm" id="email" placeholder="email" required="" autofocus="" name="email">
+        <span class="glyphicon glyphicon-ok form-control-feedback hidden email"></span>
+        <span class="glyphicon glyphicon-remove form-control-feedback hidden email"></span>
+        <span class="help-block hidden email">格式错误</span>
+        <span class="help-block hidden emailE">邮箱已存在</span>
+      </div>
+      <div class="form-group">
+        <label class="control-label sr-only password" for="password">密码:</label>
+        <input type="password" class="form-control input-sm" id="password" placeholder="password" required="" autofocus="" name="password">
+        <span class="glyphicon glyphicon-ok form-control-feedback hidden password"></span>
+        <span class="glyphicon glyphicon-remove form-control-feedback hidden password"></span>
+        <span class="help-block hidden password">格式错误: 密码为6~12位数字、大小写字母、中划线、下划线</span>
+      </div>
+      <div class="form-group">
+        <label class="control-label sr-only password2" for="password2">重复密码:</label>
+        <input type="password" class="form-control input-sm" id="password2" placeholder="repeat your password" required="" autofocus="" name="password2">
+        <span class="glyphicon glyphicon-ok form-control-feedback hidden password2"></span>
+        <span class="glyphicon glyphicon-remove form-control-feedback hidden password2"></span>
+        <span class="help-block hidden password2">密码不一致</span>
+      </div>
+      <div class="pull-right">
+        <button class="btn btn-lg btn-default submit" type="submit">注册</button>
+        <button class="btn btn-lg btn-primary signin" type="signin">登录</button>
+      </div>
+    </form>
+  </div> <!-- /container -->
+</body>
+</html>
