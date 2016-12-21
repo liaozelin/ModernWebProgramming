@@ -5,6 +5,13 @@
       By <a href="/account/{{post.author}}">{{post.author}}</a>
       <hr />
       <div>{{post.content}}</div>
+      <ul class="nav nav-pills" role="tablist">
+        <!-- <li class="presentation"><a href="/readPost/{{post.id}}" ng-if="status.isAdmin || !post.hidden">More</a></li> -->
+        <li class="presentation"><a href="/editPost/{{post._id}}" ng-if="status.user == post.author">Edit</a></li>
+        <li class="presentation"><a href="/deletePost/{{post._id}}" ng-if="status.user == post.author">Delete</a></li>
+        <!-- <li class="presentation"><a href="#" ng-show="status.isAdmin && !post.hidden" ng-click="togglePost(post)">Hide</a></li>
+        <li class="presentation"><a href="#" ng-show="status.isAdmin && post.hidden" ng-click="togglePost(post)">Show</a></li> -->
+      </ul>
     </div>
   </div>
   <hr />

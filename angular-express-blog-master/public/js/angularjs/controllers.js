@@ -128,11 +128,7 @@ function ReadPostCtrl($scope, $http, $location, $routeParams) {
     // update comment
     $scope.submitNewComment = function() {
         $scope.editMode = false;
-        $http.post('/updateComment', Object.assign($scope.post.comments[index], {
-                index: index
-            }, {
-                id: $routeParams.id
-            }))
+        $http.post('/updateComment', Object.assign($scope.post.comments[index], {index: index}, {id: $routeParams.id}))
             .then(function(data) {});
     };
     // 允许管理员隐藏或者显示评论
@@ -281,5 +277,9 @@ function AccountDetail($scope, $http, $location, $routeParams) {
     $http.get('/api/account/' + $routeParams.username)
         .then(function(data) {
             $scope.user = data.data.user;
+        });
+    $http.get('/api/posts/' + $routeParams.username)
+        .then(function(data) {
+            $scope.posts = data.data.posts;
         });
 }

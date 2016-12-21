@@ -30,6 +30,28 @@ var posts = function(req, res) {
   });
 };
 
+var postsOf = function(req, res) {
+  var posts = [];
+  Article.find({
+    author: req.params.username
+  }).exec(function(err, dbPosts) {
+    if (err) return console.log("search datas in db failed...");
+
+    dbPosts.forEach(function(post, i) {
+      posts.push({
+        id: post._id,
+        title: post.title,
+        author: post.author,
+        content: post.content.substr(0, 50) + '...',
+        hidden: post.hidden
+      });
+    });
+    res.json({
+      posts: posts
+    });
+  });
+}
+
 var post = function(req, res) {
   var id = req.params.id;
   Article.findById(id).exec(function(err, article) {
@@ -150,6 +172,7 @@ var quit = function(req, res) {
 
 module.exports = {
   'GET /api/posts': posts,
+  'GET /api/posts/:username': postsOf,
   'GET /api/post/:id': post,
   'POST /api/post': addPost,
   'PUT /api/post/:id': editPost,

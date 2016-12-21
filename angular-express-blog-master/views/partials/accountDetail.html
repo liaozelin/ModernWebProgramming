@@ -20,4 +20,18 @@
       </div>
     </div>
   </div>
+  <div>
+    <div class="jumbotron">
+      <p>There are {{posts.length}} posts.</p>
+    </div>
+    <div class="blog-post my-block" ng-repeat="post in posts">
+      <h3 class="blog-post-title">{{post.title}}</h3>
+      <p class="blog-post-meta">By <a href="/account/{{post.author}}">{{post.author}}</a></p>
+      <div ng-show="!post.hidden">{{post.content}}</div>
+      <div ng-show="post.hidden">该内容已被管理员隐藏</div>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="presentation"><a href="/readPost/{{post.id}}" ng-if="!post.hidden">More</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
