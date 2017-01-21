@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <base href="/">
   <title>blog</title>
-  <link rel="stylesheet" type="text/css" href="/css/app.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/app.css"> -->
 
   <link rel="icon" href="http://www.msqq.com/d/file/icon/2014-04-01/172eed482fb88fcbb9918ad438f023de.png" type="image/x-icon">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">My Blog</a>
+            <a class="navbar-brand" href="/">My Blog</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -36,8 +36,19 @@
     </nav>
 
     <div class="container" role="main">
-      <div ng-view></div>
+      <div ng-view>
+        <div class="loader">Loading...</div>
+      </div>
     </div>
+
+    <!-- 滚回顶部选项 -->
+    <ul class="fixed-tool list-unstyled">
+      <li>
+        <a class="fixed-tool-item fixed-tool-item-hidden" id="goTop" title="回到顶部">
+          <span class="glyphicon glyphicon-chevron-up" style="color:white;"></span>
+        </a>
+      </li>
+    </ul>
   </div>
 
   <script type="text/javascript" src="js/lib/angular/angular.js"></script>
@@ -52,5 +63,9 @@
   <script type="text/javascript" src="js/angularjs/filters.js"></script>
   <script type="text/javascript" src="js/angularjs/directives.js"></script>
   <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
+  <script type="text/javascript" src="js/gotop.js"></script>
+  <script type='text/javascript' id="__bs_script__">//<![CDATA[
+    document.write("<script async src='/browser-sync/browser-sync-client.2.10.1.js'><\/script>".replace("HOST", location.hostname));
+//]]></script>
 </body>
 </html>

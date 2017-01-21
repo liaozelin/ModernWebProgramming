@@ -1,65 +1,55 @@
-<form class="form-signin" role="form">
+<form class="form-signin my-signup-body" role="form">
   <h2 class="form-signin-heading">注册</h2>
+  <hr />
   <div class="form-group">
-    <input type="username" class="form-control username" placeholder="username" required="" autofocus="" name="username" ng-model="form.username">
-    <span class="alert alert-danger hidden username" role="alert">
-      <strong>格式错误: 用户名6~18位英文字母、数字或下划线，必须以英文字母开头</strong>
-    </span>
-    <span class="alert alert-danger hidden usernameE" role="alert">
-      <strong>用户名已存在</strong>
-    </span>
-  </div>
-  <div class="form-group">
-    <input type="studentID" class="form-control studentID" placeholder="studentID" required="" name="studentID" ng-model="form.studentID">
-    <span class="alert alert-danger hidden studentID" role="alert">
-      <strong>格式错误: 学号8位数字，不能以0开头</strong>
-    </span>
-    <span class="alert alert-danger hidden studentIDE" role="alert">
-      <strong>学号已存在</strong>
-    </span>
+    <label class="control-label sr-only username" for="username">用户名:</label>
+    <input type="username" class="form-control input-sm" id="username" placeholder="username" required="" autofocus="" name="username" ng-model="form.username">
+    <span class="glyphicon glyphicon-ok form-control-feedback hidden username"></span>
+    <span class="glyphicon glyphicon-remove form-control-feedback hidden username"></span>
+    <span class="help-block hidden username">格式错误: 用户名6~18位英文字母、数字或下划线，必须以英文字母开头</span>
+    <span class="help-block hidden usernameE">用户名已存在</span>
   </div>
   <div class="form-group">
-    <input type="phone" class="form-control phone" placeholder="phone" required="" name="phone" ng-model="form.phone">
-    <span class="alert alert-danger hidden phone" role="alert">
-      <strong>格式错误: 电话11位数字，不能以0开头</strong>
-    </span>
-    <span class="alert alert-danger hidden phoneE" role="alert">
-      <strong>电话号码已存在</strong>
-    </span>
+    <label class="control-label sr-only studentID" for="studentID">学号:</label>
+    <input type="studentID" class="form-control input-sm" id="studentID" placeholder="studentID" required="" autofocus="" name="studentID" ng-model="form.studentID">
+    <span class="glyphicon glyphicon-ok form-control-feedback hidden studentID"></span>
+    <span class="glyphicon glyphicon-remove form-control-feedback hidden studentID"></span>
+    <span class="help-block hidden studentID">格式错误: 学号8位数字，不能以0开头</span>
+    <span class="help-block hidden studentIDE">学号已存在</span>
   </div>
   <div class="form-group">
-    <input type="email" class="form-control email" placeholder="email" required="" autofocus="" name="email" ng-model="form.email">
-    <span class="alert alert-danger hidden email" role="alert">
-      <strong>格式错误</strong>
-    </span>
-    <span class="alert alert-danger hidden emailE" role="alert">
-      <strong>邮箱已存在</strong>
-    </span>
+    <label class="control-label sr-only phone" for="phone">电话号码:</label>
+    <input type="phone" class="form-control input-sm" id="phone" placeholder="phone" required="" autofocus="" name="phone" ng-model="form.phone">
+    <span class="glyphicon glyphicon-ok form-control-feedback hidden phone"></span>
+    <span class="glyphicon glyphicon-remove form-control-feedback hidden phone"></span>
+    <span class="help-block hidden phone">格式错误: 电话11位数字，不能以0开头</span>
+    <span class="help-block hidden phoneE">电话号码已存在</span>
   </div>
   <div class="form-group">
-    <input type="password" class="form-control password" placeholder="password" required="" autofocus="" name="password" >
-    <span class="alert alert-danger hidden password" role="alert">
-      <strong>格式错误: 密码为6~12位数字、大小写字母、中划线、下划线</strong>
-    </span>
+    <label class="control-label sr-only email" for="email">邮箱:</label>
+    <input type="email" class="form-control input-sm" id="email" placeholder="email" required="" autofocus="" name="email" ng-model="form.email">
+    <span class="glyphicon glyphicon-ok form-control-feedback hidden email"></span>
+    <span class="glyphicon glyphicon-remove form-control-feedback hidden email"></span>
+    <span class="help-block hidden email">格式错误</span>
+    <span class="help-block hidden emailE">邮箱已存在</span>
   </div>
   <div class="form-group">
-    <input type="password" class="form-control password2" placeholder="repeat your password" required="" autofocus="" name="password" ng-model="form.password">
-    <span class="alert alert-danger hidden password2" role="alert">
-      <strong>密码不一致</strong>
-    </span>
+    <label class="control-label sr-only password" for="password">密码:</label>
+    <input type="password" class="form-control input-sm" id="password" placeholder="password" required="" autofocus="" name="password">
+    <span class="glyphicon glyphicon-ok form-control-feedback hidden password"></span>
+    <span class="glyphicon glyphicon-remove form-control-feedback hidden password"></span>
+    <span class="help-block hidden password">格式错误: 密码为6~12位数字、大小写字母、中划线、下划线</span>
   </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <div class="navbar-form navbar-right">
-    <button class="btn btn-lg btn-default submit" type="submit" ng-click="signup()">注册</button>
-    <button class="btn btn-lg btn-default reset" type="reset">重置</button>
-    <a class="btn btn-lg btn-primary signin" href="/signIn">登录</a>
+  <div class="form-group">
+    <label class="control-label sr-only password2" for="password2">重复密码:</label>
+    <input type="password" class="form-control input-sm" id="password2" placeholder="repeat your password" required="" autofocus="" name="password2" ng-model="form.password">
+    <span class="glyphicon glyphicon-ok form-control-feedback hidden password2"></span>
+    <span class="glyphicon glyphicon-remove form-control-feedback hidden password2"></span>
+    <span class="help-block hidden password2">密码不一致</span>
   </div>
 
-  <div class="alert alert-danger" role="alert" ng-if="form.error">
-    <strong>注册用户时发生错误: 您的信息可能重复</strong>
+  <div class="">
+    <a class="btn btn-primary signin" href="/signIn">登录</a>
+    <button class="btn btn-default submit" type="submit" ng-click="signup()">注册</button>
   </div>
 </form>

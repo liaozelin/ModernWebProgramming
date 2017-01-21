@@ -1,15 +1,37 @@
-<div class="">
-  <div class="row my-offset">
-    <div class="col-sm-8">
+<div class="row my-body">
+  <form role="form">
+    <div class="col-sm-12 text-center">
       <h2>Write a new post</h2>
-      <label for="title">
-        Title:<input type="" name="title" ng-model="form.title">
-      </label>
-      <div class="row">
-        <textarea class="col-sm-8" ng-model="form.content"></textarea>
+    </div>
+    <div class="col-sm-9">
+      <div class="form-group">
+        <label for="title">标题</label>
+        <input id="title" class="form-control" type="text" name="title" required="" placeholder="请输入标题" ng-model="form.title">
       </div>
-      <div class="">
-        <button class="btn btn-default" ng-click="submitPost()">Submit Post</button>
+      <div class="form-group">
+        <label for="tags">标签(可选)</label>
+        <input id="tags" class="form-control" type="text" name="tags" placeholder="请输入标签(功能未实现)" ng-model="form.tags">
       </div>
-  </div>
+      <div class="form-group">
+        <label for="summary">摘要(可选)</label>
+        <textarea id="summary" class="form-control" type="text" name="summary" placeholder="默认截取文章前50字(功能未实现)" ng-model="form.summary"></textarea>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group col-sm-8">
+        <label for="category">分类(未实现)</label>
+        <select id="category" class="form-control" name="category" ng-model="form.category">
+          <option value="none">未分类</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="content">正文</label>
+      <textarea id="content" class="form-control" rows="12" required="" ng-model="form.content"></textarea>
+    </div>
+    <div class="col-sm-12 upward-brace-sm">
+      <button class="btn btn-success" type="submit" ng-click="submitPost()">Submit Post</button>
+    </div>
+  </form>
+  <div class="col-sm-12 upward-brace-lg"></div>
 </div>

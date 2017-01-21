@@ -56,7 +56,7 @@ function IndexCtrl($scope, $http, $location) {
     // 分页,使用了自定义指令<my-pagination conf="paginationConf"></my-pagination>
     $scope.paginationConf = {
         curPageIndex: 1,
-        sizeOfEachPage: 2,
+        sizeOfEachPage: 5,
         totalItems: allPosts.length,
         reloadSource: function() {
             // 只关注于重新加载当前页面内容,无需理会分页条的变化,只与以上三个参数有关
@@ -71,13 +71,20 @@ function IndexCtrl($scope, $http, $location) {
 }
 
 function AddPostCtrl($scope, $http, $location) {
-    $scope.form = {};
+    $scope.form = {
+        title: '',
+        summary: '',
+        category: 'none',
+        content: ''
+    };
     $scope.submitPost = function() {
         $http.post('/api/post', $scope.form)
             .then(function(data) {
                 if (data.data) $location.path('/');
             });
     };
+
+    $('form').submit(function() {});
 }
 
 function ReadPostCtrl($scope, $http, $location, $routeParams) {
@@ -100,16 +107,8 @@ function ReadPostCtrl($scope, $http, $location, $routeParams) {
         if ($scope.status.user === '') {
             window.alert('请先登录!');
             return;
-        } else if ($scope.status.user === $scope.post.author) {
-            window.alert('无法评论自己的文章!');
-            return;
         }
-        for (var i = 0; i < $scope.post.comments.length; ++i) {
-            if ($scope.status.user === $scope.post.comments[i].author) {
-                window.alert('您已经评论过了!');
-                return;
-            }
-        }
+
         $http.post('/addComment', Object.assign($scope.form, {
                 id: $routeParams.id
             }))
@@ -145,11 +144,14 @@ function ReadPostCtrl($scope, $http, $location, $routeParams) {
 }
 
 function EditPostCtrl($scope, $http, $location, $routeParams) {
-    $scope.form = {};
+    $scope.form = {
+        category: 'none'
+    };
     $http.get('/api/post/' + $routeParams.id)
         .then(function(data) {
-            $scope.form = data.data.post;
+            $scope.form = Object.assign($scope.form, data.data.post);
         });
+    $scope.form['category'] = 'none';
     // submit and update the post
     $scope.editPost = function() {
         $http.put('/api/post/' + $routeParams.id, $scope.form)
@@ -194,31 +196,41 @@ function SignUp($scope, $http, $location, $routeParams) {
     };
 
     // 表单验证,复用上次作业代码
-    $('button.reset').click(clearAllErrors);
+    $('form').submit(function() {
+        if (!_.every($('.help-block'), (x) => $(x).hasClass('hidden')))
+            return false;
+    });
+
     var items = ['username', 'studentID', 'email', 'phone'];
     for (var item of items) {
         (function(item) {
-            $('input.' + item).blur(function() {
-                clearErrorOf(this);
+            $('input#' + item).blur(function() {
                 if ($(this).val() !== '') {
-                    if (!validator[item]($(this).val())) fail('span.' + item);
+                    if (!validator[item]($(this).val())) checkFail(item);
                     else sentAjaxReq(item, $(this).val());
+                } else {
+                    clear(item);
                 }
             });
         })(item);
     }
-    $('input.password').blur(function() {
-        clearErrorOf(this);
-        if ($(this).val() !== '' && !validator.password($(this).val()))
-            fail('span.password');
-        $('input.password2').blur();
+    $('input#password').blur(function() {
+        clear('password');
+        if ($(this).val() !== '') {
+            if (!validator.password($(this).val())) checkFail('password');
+            else success('password');
+        }
+        $('input#password2').blur();
     });
-    $('input.password2').blur(function() {
-        clearErrorOf(this);
-        if ($(this).val() !== '' && $(this).val() !== $('input.password').val())
-            fail('span.password2');
+    $('input#password2').blur(function() {
+        clear('password2');
+        if ($(this).val() !== '') {
+            if ($(this).val() !== $('input#password').val()) checkFail('password2');
+            else success('password2');
+        }
         $('input.password').blur();
     });
+
     function sentAjaxReq(item, data) {
         $.ajax('/ajax', {
             method: 'POST',
@@ -228,25 +240,36 @@ function SignUp($scope, $http, $location, $routeParams) {
             }
         }).done(function(data) {
             if (data.startsWith('invalid'))
-                $('span.' + data.substring(8) + 'E').addClass('show').removeClass('hidden');
+                repetition(data.substring(8));
             else
-                $('span.' + data.substring(5) + 'E').addClass('hidden').removeClass('show');
+                success(data.substring(6));
         }).fail(function(xhr, status) {
             window.alert('失败: ' + xhr.status + ', 原因: ' + status);
         });
     }
-    function fail(str) { // 输入的内容格式不合法
-        $(str).addClass('show').removeClass('hidden');
+
+    function clear(item) {
+        $('label.' + item).parent().removeClass('has-success').removeClass('has-error').removeClass('has-feedback');
+        $('span.' + item).removeClass('show').addClass('hidden');
+        $('span.' + item + 'E').removeClass('show').addClass('hidden');
     }
-    function clearAllErrors() { // 隐藏所有提示栏
-        $('span').each(function() {
-            $(this).removeClass('show').addClass('hidden');
-        });
+    function success(item) {
+        clear(item);
+        $('label.' + item).parent().addClass('has-success').addClass('has-feedback');
+        $('label.' + item).parent().children('.glyphicon-ok').removeClass('hidden').addClass('show');
     }
-    function clearErrorOf(element) { // 隐藏目标元素的所有提示栏
-        $(element).parent().find('span').each(function() {
-            $(this).addClass('hidden').removeClass('show');
-        });
+    function failDriver(item) {
+        clear(item);
+        $('label.' + item).parent().addClass('has-error').addClass('has-feedback');
+        $('label.' + item).parent().children('.glyphicon-remove').removeClass('hidden').addClass('show');
+    }
+    function checkFail(item) {
+        failDriver(item);
+        $($('label.' + item).parent().children('.help-block')[0]).removeClass('hidden').addClass('show');
+    }
+    function repetition(item) {
+        failDriver(item);
+        $('span.' + item + 'E').removeClass('hidden').addClass('show');
     }
 }
 

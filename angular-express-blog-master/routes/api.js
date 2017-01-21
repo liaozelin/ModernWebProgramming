@@ -12,7 +12,8 @@ const Article = db.article;
 
 var posts = function(req, res) {
   var posts = [];
-  Article.find().exec(function(err, dbPosts) {
+  // 根据创建日期进行排序: sort({'_id': -1})
+  Article.find().sort({'_id': -1}).exec(function(err, dbPosts) {
     if (err) return console.log("search datas in db failed...");
 
     dbPosts.forEach(function(post, i) {
@@ -70,7 +71,7 @@ var post = function(req, res) {
 // POST
 
 var addPost = function(req, res) {
-  if (req.body.title == '' || req.body.content == '') {
+  if (!req.body.title || req.body.title === '' || !req.body.content || req.body.content === '') {
     res.json(false);
   } else {
     var newArticle = {

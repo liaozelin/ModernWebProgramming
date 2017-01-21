@@ -1,5 +1,6 @@
-<form class="form-signin" role="form">
+<form class="form-signin my-signin-body" role="form">
   <h2 class="form-signin-heading">登录</h2>
+  <hr />
   <div class="form-group">
     <input type="username" class="form-control username" required="" autofocus="" placeholder="username" name="username" ng-model="form.username">
   </div>
@@ -9,12 +10,12 @@
   <div class="alert alert-danger" role="alert" ng-show="error == true">
     <strong>登录失败: </strong>出错的用户名或者密码
   </div>
-  <div class="checkbox">
+  <!-- <div class="checkbox">
     <label>
       <input type="checkbox" value="remember-me"> Remember me
     </label>
-  </div>
-  <div class="navbar-form navbar-right">
+  </div> -->
+  <div class="">
     <a class="btn btn-primary regist" href="/signUp">注册</a>
     <button class="btn btn-default submit" type="submit" ng-click="signin()">登录</button>
   </div>

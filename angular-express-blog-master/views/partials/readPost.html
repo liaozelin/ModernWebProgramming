@@ -1,62 +1,62 @@
-<div class="my-body">
-  <div class="row my-offset">
-    <div class="col-sm-8 blog-main">
-      <h2>{{post.title}}</h2>
-      By <a href="/account/{{post.author}}">{{post.author}}</a>
+<div class="row my-body">
+  <div class="col-sm-12">
+    <div class="col-sm-12 upward-brace-lg"></div>
+    <div class="col-sm-9">
+      <div class="text-center">
+        <h2>{{post.title}}</h2>
+      </div>
+      <div>
+        <span class="glyphicon glyphicon-user" style="font-size:15px;"></span>
+        <a href="/account/{{post.author}}">{{post.author}}</a>
+      </div>
       <hr />
-      <div>{{post.content}}</div>
+      <div class="content-area" ng-show="!post.hidden">{{post.content}}</div>
+      <div class="content-area" ng-show="post.hidden">该内容已被管理员隐藏</div>
       <ul class="nav nav-pills" role="tablist">
-        <!-- <li class="presentation"><a href="/readPost/{{post.id}}" ng-if="status.isAdmin || !post.hidden">More</a></li> -->
         <li class="presentation"><a href="/editPost/{{post._id}}" ng-if="status.user == post.author">Edit</a></li>
         <li class="presentation"><a href="/deletePost/{{post._id}}" ng-if="status.user == post.author">Delete</a></li>
-        <!-- <li class="presentation"><a href="#" ng-show="status.isAdmin && !post.hidden" ng-click="togglePost(post)">Hide</a></li>
-        <li class="presentation"><a href="#" ng-show="status.isAdmin && post.hidden" ng-click="togglePost(post)">Show</a></li> -->
       </ul>
     </div>
-  </div>
-  <hr />
-  <div class="row">
-    <ul>
-      <h2>{{post.comments.length}} comments</h2>
-    </ul>
-    <div class="aw-content-wrap clearfix">
-      <div class="col-sm-12 col-md-9 col-sm-offset-1 aw-main-content">
-        <div class="aw-mod aw-explore-list">
-        <div class="mod-body">
-          <div class="aw-common-list my-block" ng-repeat="comment in post.comments">
-            <h4>By <a href="/account/{{comment.author}}">{{comment.author}}</a>:</h4>
-            <div ng-show="!editMode && !comment.hidden">{{comment.content}}</div>
-            <div ng-show="!editMode && comment.hidden">该评论已被管理员隐藏</div>
-            <textarea ng-model="comment.content" ng-show="status.user == comment.author && editMode"></textarea>
-            <ul class="nav nav-pills" role="tablist">
-              <li class="presentation">
-                <a href="#" ng-show="status.user == comment.author && !editMode" ng-click="editComment()">Edit your comment</a>
-              </li>
-              <li class="presentation">
-                <a href="#" ng-show="status.user == comment.author && editMode" ng-click="submitNewComment()">Submit the comment</a>
-              </li>
-              <li class="presentation">
-                <a href="#" ng-show="status.isAdmin && !comment.hidden" ng-click="toggleComment(comment)">Hide</a>
-              </li>
-              <li class="presentation">
-                <a href="#" ng-show="status.isAdmin && comment.hidden" ng-click="toggleComment(comment)">Show</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div class="col-sm-9">
+      <hr />
+      <div class="col-sm-12">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#">New comment</a></li>
+        </ul>
+        <textarea rows="5" class="col-sm-12 form-control upward-brace-sm" ng-model="form.content"></textarea>
+        <div class="pull-right upward-brace-sm">
+          <button class="btn btn-default" ng-click="addComment()">submit comment</button>
         </div>
       </div>
-    </div>
 
-    <ul>
-      <h2>Add a comment:</h2>
-      <div class="row">
-        <textarea class="col-sm-8" ng-model="form.content"></textarea>
+      <div class="col-sm-12 upward-brace">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#">Comments</a></li>
+        </ul>
+        <div class="text-center" ng-show="post.comments.length === 0"><h3>No comments!</h3></div>
+        <div class="my-block" ng-repeat="comment in post.comments">
+          <h4><span class="glyphicon glyphicon-user" style="font-size:15px;"></span><a href="/account/{{comment.author}}">{{comment.author}}</a></h4>
+          <div ng-show="!editMode && !comment.hidden">{{comment.content}}</div>
+          <div ng-show="!editMode && comment.hidden">该评论已被管理员隐藏</div>
+          <textarea rows="4" class="col-sm-10" ng-model="comment.content" ng-show="status.user == comment.author && editMode"></textarea>
+          <ul class="nav nav-pills" role="tablist">
+            <li class="presentation">
+              <a href="#" ng-show="status.user == comment.author && !editMode" ng-click="editComment()">Edit your comment</a>
+            </li>
+            <li class="presentation">
+              <a href="#" ng-show="status.user == comment.author && editMode" ng-click="submitNewComment()">Submit the comment</a>
+            </li>
+            <li class="presentation">
+              <a href="#" ng-show="status.isAdmin && !comment.hidden && !editMode" ng-click="toggleComment(comment)">Hide</a>
+            </li>
+            <li class="presentation">
+              <a href="#" ng-show="status.isAdmin && comment.hidden && !editMode" ng-click="toggleComment(comment)">Show</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="">
-        <button class="btn btn-default" ng-click="addComment()">submit comment</button>
-      </div>
-    </ul>
+      <div class="col-sm-12 upward-brace-lg"></div>
+    </div>
   </div>
 </div>
 

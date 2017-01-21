@@ -1,43 +1,238 @@
 /*navbar-fixed-top*/
-body {
-  /*min-height: 2000px;*/
-  padding-top: 70px;
+body
+{
+    /*min-height: 2000px;*/
+    padding-top: 70px;
 }
 
-.my-float-clear {
+.my-float-clear
+{
     clear: both;
 }
 
-.my-body {
+.my-body
+{
     background-color: white;
 }
 
-.my-block {
-    border-width: 0px 0px 1px 0px;
-    border-style: solid;
-    border-color: #aaaaaa;
+.my-signin-body
+{
+    min-width: 350px;
+    min-height: 300px;
+
+    border-radius: 1%;
+    background-color: white;
 }
 
-.my-offset {
+.my-signup-body
+{
+    min-width: 350px;
+    min-height: 520px;
+
+    border-radius: 1%;
+    background-color: white;
+}
+
+.my-block
+{
+    margin-top: 10px;
+
+    border-width: 0 0 1px 0;
+    border-style: dashed;
+    border-color: #aaa;
+}
+
+.my-offset
+{
     margin-left: 20px;
 }
 
-/*.my-partition-bottom {
-    margin-bottom: 50px;
-}*/
-
-.my-pagination-part-two {
-    margin: 20px 0px;
+.upward-brace-sm
+{
+    margin: 10px 0 0 0;
 }
 
-/*.my-fix-input-group {
-    width: 100px;
-}*/
+.upward-brace
+{
+    margin: 20px 0 0 0;
+}
 
-.show {
+.upward-brace-lg
+{
+    margin: 40px 0 0 0;
+}
+
+.show
+{
     opacity: 1;
 }
 
-.hidden {
+.hidden
+{
     opacity: 0;
+}
+
+.post-content
+{
+    padding: 10px 0;
+}
+
+.content-area
+{
+    margin: 20px 0 40px 0;
+}
+
+.list-wrap
+{
+    min-height: 64px;
+    margin: 30px 6px 0;
+    padding: 0 20px 20px;
+
+    border-width: 1px 0;
+    border-style: solid solid none;
+    border-color: #e7eaec;
+    background: #fff;
+}
+
+.top-bar
+{
+    border-bottom: 1px solid #e7eaec;
+}
+
+.hr-line-dashed
+{
+    height: 1px;
+    margin: 20px 0;
+
+    color: #fff;
+    border-top: 1px dashed #e7eaec;
+    background-color: #fff;
+}
+
+/*文本居中*/
+.text-center
+{
+    text-align: center;
+}
+
+/*滚回顶部选项*/
+.fixed-tool
+{
+    position: fixed;
+    z-index: 2;
+    right: 60px;
+    bottom: 0;
+}
+
+.fixed-tool-item
+{
+    width: 40px;
+    height: 40px;
+    padding: 10px 14px;
+
+    border-radius: 50%;
+    background-color: gray;
+}
+
+.fixed-tool-item:hover
+{
+    background-color: #1ab394;
+}
+
+.fixed-tool-item-hidden
+{
+    display: none;
+}
+
+.fixed-tool-item-show
+{
+    position: fixed;
+    top: auto;
+    bottom: 70px;
+
+    display: block;
+}
+
+/*加载动画*/
+.loader,
+.loader:before,
+.loader:after
+{
+    width: 1em;
+    height: 4em;
+
+    -webkit-animation: load1 1s infinite ease-in-out;
+            animation: load1 1s infinite ease-in-out;
+
+    background: #fff;
+}
+.loader
+{
+    font-size: 11px;
+
+    position: relative;
+
+    margin: 88px auto;
+
+    -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-animation-delay: -.16s;
+            animation-delay: -.16s;
+    text-indent: -9999em;
+
+    color: #fff;
+}
+.loader:before,
+.loader:after
+{
+    position: absolute;
+    top: 0;
+
+    content: '';
+}
+.loader:before
+{
+    left: -1.5em;
+
+    -webkit-animation-delay: -.32s;
+            animation-delay: -.32s;
+}
+.loader:after
+{
+    left: 1.5em;
+}
+@-webkit-keyframes load1
+{
+    0%,
+    80%,
+    100%
+    {
+        height: 4em;
+
+        box-shadow: 0 0;
+    }
+    40%
+    {
+        height: 5em;
+
+        box-shadow: 0 -2em;
+    }
+}
+@keyframes load1
+{
+    0%,
+    80%,
+    100%
+    {
+        height: 4em;
+
+        box-shadow: 0 0;
+    }
+    40%
+    {
+        height: 5em;
+
+        box-shadow: 0 -2em;
+    }
 }
