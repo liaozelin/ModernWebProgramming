@@ -1,67 +1,69 @@
-<!-- 登入登出以及注册按钮 -->
-<div class="navbar-form navbar-right">
-  <a class="btn btn-primary" href="/signUp" ng-if="!status.signin">Sign Up</a>
-  <a class="btn btn-default" href="/signIn" ng-if="!status.signin">Sign In</a>
-  <a class="btn btn-success" href="/addPost" ng-show="status.signin">Add a new post</a>
-  <div class="dropdown pull-right" ng-if="status.signin">
-    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{status.user}}<span class="caret"></span></button>
-    <ul class="dropdown-menu" role="menu">
-      <li><a href="/signOut">Sign Out</a></li>
-      <li><a href="/account/{{status.user}}">Account Detail</a></li>
-    </ul>
+
+<div class="container">
+  <!-- 登入登出以及注册按钮 -->
+  <div class="navbar-form navbar-right">
+    <a class="btn btn-primary" href="/signUp" ng-if="!status.signin">Sign Up</a>
+    <a class="btn btn-default" href="/signIn" ng-if="!status.signin">Sign In</a>
+    <a class="btn btn-success" href="/addPost" ng-show="status.signin">Add a new post</a>
+    <div class="dropdown pull-right" ng-if="status.signin">
+      <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{status.user}}<span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="/signOut">Sign Out</a></li>
+        <li><a href="/account/{{status.user}}">Account Detail</a></li>
+      </ul>
+    </div>
   </div>
-</div>
-<div class="my-float-clear list-wrap">
-  <div class="jumbotron my-body">
-    <p>There are {{posts.length}} posts in this page</p>
-  </div>
-  <div class="row">
-    <div class="col-sm-8">
-      <!-- filter -->
-      <div class="row top-bar">
-        <div class="form-horizontal">
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Filter By</label>
-            <div class="col-sm-10">
-              <select ng-model="filterBy" class="form-control">
-                <option value="title">title</option>
-                <option value="author">author</option>
-                <option value="content">content</option>
-                <option value="all">all</option>
-              </select>
+  <div class="my-float-clear list-wrap">
+    <div class="row">
+      <div class="upward-brace-lg"></div>
+      <div class="col-sm-8 col-sm-offset-2">
+        <!-- filter -->
+        <div class="row top-bar">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Filter By</label>
+              <div class="col-sm-10">
+                <select ng-model="filterBy" class="form-control">
+                  <option value="title">title</option>
+                  <option value="author">author</option>
+                  <option value="content">content</option>
+                  <option value="all">all</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Filter posts</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" placeholder="Filter posts in this area" ng-model="filterStr" ng-blur="postFilter()"></input>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Filter posts</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Filter posts in this area" ng-model="filterStr" ng-blur="postFilter()"></input>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- posts' list -->
-      <div class="text-center" ng-show="posts.length === 0"><h3>No post at all!</h3></div>
-      <div class="blog-post" ng-repeat="post in posts">
-        <h3 class="blog-post-title">
-          <span class="glyphicon glyphicon-paperclip" style="font-size:20px;"></span>{{post.title}}
-        </h3>
-        <p class="blog-post-meta">
-          <span class="glyphicon glyphicon-user" style="font-size:15px;"></span>
-          <a href="/account/{{post.author}}">{{post.author}}</a>
-        </p>
-        <div class="post-content" ng-show="!post.hidden">{{post.content}}</div>
-        <div class="post-content" ng-show="post.hidden">该内容已被管理员隐藏</div>
-        <ul class="nav nav-pills" role="tablist">
-          <li class="presentation"><a href="/readPost/{{post.id}}" ng-if="status.isAdmin || !post.hidden">More</a></li>
-          <li class="presentation"><a href="/editPost/{{post.id}}" ng-if="status.user == post.author">Edit</a></li>
-          <li class="presentation"><a href="/deletePost/{{post.id}}" ng-if="status.user == post.author">Delete</a></li>
-          <li class="presentation"><a href="#" ng-show="status.isAdmin && !post.hidden" ng-click="togglePost(post)">Hide</a></li>
-          <li class="presentation"><a href="#" ng-show="status.isAdmin && post.hidden" ng-click="togglePost(post)">Show</a></li>
-        </ul>
-        <div class="hr-line-dashed"></div>
+        <!-- posts' list -->
+        <div class="text-center" ng-show="posts.length === 0"><h3>No post at all!</h3></div>
+        <div class="blog-post" ng-repeat="post in posts">
+          <h2 class="post-title">
+            <span class="glyphicon glyphicon-paperclip" style="font-size:20px;"></span>
+            <a class="" href="/readPost/{{post.id}}">{{post.title}}</a>
+          </h2>
+          <p class="blog-post-meta">
+            <span class="glyphicon glyphicon-user" style="font-size:15px;"></span>
+            <a href="/account/{{post.author}}">{{post.author}}</a>
+          </p>
+          <div class="post-summary" ng-show="!post.hidden">{{post.content}}</div>
+          <div class="post-summary" ng-show="post.hidden">该内容已被管理员隐藏</div>
+          <ul class="nav nav-pills" role="tablist">
+            <li class="presentation"><a href="/readPost/{{post.id}}" ng-if="status.isAdmin || !post.hidden">More</a></li>
+            <li class="presentation"><a href="/editPost/{{post.id}}" ng-if="status.user == post.author">Edit</a></li>
+            <li class="presentation"><a href="/deletePost/{{post.id}}" ng-if="status.user == post.author">Delete</a></li>
+            <li class="presentation"><a href="#" ng-show="status.isAdmin && !post.hidden" ng-click="togglePost(post)">Hide</a></li>
+            <li class="presentation"><a href="#" ng-show="status.isAdmin && post.hidden" ng-click="togglePost(post)">Show</a></li>
+          </ul>
+          <div class="hr-line-dashed"></div>
+        </div>
       </div>
     </div>
+    <!-- 分页 -->
+    <my-pagination conf="paginationConf"></my-pagination>
   </div>
-  <!-- 分页 -->
-  <my-pagination conf="paginationConf"></my-pagination>
 </div>

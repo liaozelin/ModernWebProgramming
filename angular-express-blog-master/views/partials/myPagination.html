@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-8" ng-show="conf.totalItems > 0">
+  <div class="col-sm-8 col-sm-offset-2" ng-show="conf.totalItems > 0">
     <span class="row-selector form-inline col-sm-3 upward-brace">
       每页<select class="form-control" ng-model="conf.sizeOfEachPage" ng-options="option for option in sizeOfEachPageOptions " ng-change="changeSizeOfEachPage()"></select>条/共{{conf.totalItems}}条
     </span>

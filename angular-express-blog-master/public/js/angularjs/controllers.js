@@ -183,12 +183,15 @@ function SignUp($scope, $http, $location, $routeParams) {
     $scope.form = {
         username: '',
         password: '',
+        password2: '',
         studentID: '',
         phone: '',
         email: ''
     };
 
     $scope.signup = function() {
+        if (!_.every($('.help-block'), (x) => $(x).hasClass('hidden')) || $scope.form.password !== $scope.form.password2)
+            return;
         $http.post('/signup', $scope.form)
             .then(function(data) {
                 if (data.data) $location.path('/');
@@ -197,7 +200,7 @@ function SignUp($scope, $http, $location, $routeParams) {
 
     // 表单验证,复用上次作业代码
     $('form').submit(function() {
-        if (!_.every($('.help-block'), (x) => $(x).hasClass('hidden')))
+        if (!_.every($('.help-block'), (x) => $(x).hasClass('hidden')) || $scope.form.password !== $scope.form.password2)
             return false;
     });
 

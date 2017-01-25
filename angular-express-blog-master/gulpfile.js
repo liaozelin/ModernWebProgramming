@@ -1,5 +1,5 @@
 var gulp        = require('gulp');
-var nodemon = require('gulp-nodemon');
+var nodemon     = require('gulp-nodemon');
 var browserSync = require('browser-sync').create();
 var reload      = browserSync.reload;
 

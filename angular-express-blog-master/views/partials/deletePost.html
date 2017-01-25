@@ -1,29 +1,30 @@
-<div class="row my-body">
-  <div class="col-sm-12">
-    <div class="col-sm-12 upward-brace-lg"></div>
-    <div class="col-sm-9">
-      <div class="text-center">
-        <h2>{{post.title}}</h2>
-      </div>
-      <div>
-        <span class="glyphicon glyphicon-user" style="font-size:15px;"></span>
-        <a href="/account/{{post.author}}">{{post.author}}</a>
+<div class="container">
+  <div class="row my-body">
+    <div class="col-sm-12">
+      <div class="col-sm-12 upward-brace-lg"></div>
+      <div class="col-sm-9">
+        <div class="text-center">
+          <h2>{{post.title}}</h2>
+        </div>
+        <div>
+          <span class="glyphicon glyphicon-user" style="font-size:15px;"></span>
+          <a href="/account/{{post.author}}">{{post.author}}</a>
+        </div>
+        <hr />
+        <div class="content-area" ng-show="!post.hidden">{{post.content}}</div>
+        <div class="content-area" ng-show="post.hidden">该内容已被管理员隐藏</div>
+        <ul class="nav nav-pills" role="tablist">
+          <li class="presentation"><a href="/editPost/{{post._id}}" ng-if="status.user == post.author">Edit</a></li>
+          <li class="presentation"><a href="/deletePost/{{post._id}}" ng-if="status.user == post.author">Delete</a></li>
+        </ul>
       </div>
       <hr />
-      <div class="content-area" ng-show="!post.hidden">{{post.content}}</div>
-      <div class="content-area" ng-show="post.hidden">该内容已被管理员隐藏</div>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="presentation"><a href="/editPost/{{post._id}}" ng-if="status.user == post.author">Edit</a></li>
-        <li class="presentation"><a href="/deletePost/{{post._id}}" ng-if="status.user == post.author">Delete</a></li>
-      </ul>
+      <div class="col-sm-9">
+        <p><strong>Are you sure you want to delete this post?</strong></p>
+        <button class="btn btn-default" ng-click="home()">No thanks</button>
+        <button class="btn btn-primary" ng-click="deletePost()">Yes</button>
+      </div>
     </div>
-    <hr />
-    <div class="col-sm-9">
-      <p><strong>Are you sure you want to delete this post?</strong></p>
-      <button class="btn btn-default" ng-click="home()">No thanks</button>
-      <button class="btn btn-primary" ng-click="deletePost()">Yes</button>
-    </div>
+    <div class="col-sm-12 upward-brace-lg"></div>
   </div>
-  <div class="col-sm-12 upward-brace-lg"></div>
 </div>
-
